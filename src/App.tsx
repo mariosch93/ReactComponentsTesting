@@ -6,6 +6,7 @@ import "./App.css";
 import Button from "./components/Button/Button";
 import myImageDay from "./components/Images/lightMode.png";
 import myImageNight from "./components/Images/darkMode.png";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 function App() {
   const [count, setCount] = useState<number>(0);
