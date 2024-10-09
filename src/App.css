@@ -1,7 +1,6 @@
 body {
   width: 100%; 
   height:100%;
-  padding: 10px;
   background-color: #242424;
 }
 
@@ -32,7 +31,8 @@ body {
 }
 
 .darkMode{
-  margin: 0px;
+  color: #000;
+  margin: 5px;
   padding: 0px;
   float: right;
   height: 35px;

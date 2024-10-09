@@ -1,16 +1,17 @@
-import React, { ReactNode } from "react";
-
-interface Props {
-  label: string;
-  children: React.ReactNode;
-}
-
-const DropMenu = ({ children, label }: Props) => {
+const DropMenu = () => {
   return (
-    <select aria-label={label}>
-      <title>dwd</title>
-      <option value="Greece">Greece</option>
-    </select>
+    <div>
+      <label>
+        What do we eat?
+        <select>
+          <option value="fruit">Fruit</option>
+
+          <option value="vegetable">Vegetable</option>
+
+          <option value="meat">Meat</option>
+        </select>
+      </label>
+    </div>
   );
 };
 

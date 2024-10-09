@@ -6,7 +6,8 @@ import "./App.css";
 import Button from "./components/Button/Button";
 import myImageDay from "./components/Images/lightMode.png";
 import myImageNight from "./components/Images/darkMode.png";
-import ProgressBar from "./components/ProgressBar/ProgressBar";
+import DropMenu from "./components/DropDownMenu/DropMenu";
+import Navbar from "./components/Navbar/NavBar";
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -54,7 +55,6 @@ function App() {
           <img className="darkMode fadeIn" src={myImageNight} alt="Dark Mode" />
         </button>
       )}
-
       <div className="countTotal">
         &nbsp;Total Count: {count} (Suggested: 43)
         {count === 43 ? (
