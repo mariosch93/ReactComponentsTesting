@@ -43,5 +43,9 @@ ul{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 400ms;
   }
   
+  .icon-button:hover{
+    filter: brightness(1.3);
+  }

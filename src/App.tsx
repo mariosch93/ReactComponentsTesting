@@ -5,9 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "./App.css";
 import Button from "./components/Button/Button";
 import myImageDay from "./components/Images/lightMode.png";
-import myImageNight from "./components/Images/darkMode.png";
-import DropMenu from "./components/DropDownMenu/DropMenu";
-import Navbar from "./components/Navbar/NavBar";
+import myImageNight from "./components/Images/half-moon.png";
+import Navbar, { NavItem } from "./components/Navbar/NavBar";
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -40,21 +39,24 @@ function App() {
 
   return (
     <>
-      {darkMode ? (
-        <div>
-          <button className="darkMode fadeIn" onClick={handleMode}>
-            <img
-              className="darkMode fadeIn"
-              src={myImageDay}
-              alt="Light Mode"
-            />
-          </button>
-        </div>
-      ) : (
+      <Navbar>
+        <NavItem icon="😁" />
+        <NavItem icon="🥰" />
+        <NavItem icon="😒" />
+        <NavItem icon="😌" />
+        <NavItem icon="🧐" />
+      </Navbar>
+
+      <div>
         <button className="darkMode fadeIn" onClick={handleMode}>
-          <img className="darkMode fadeIn" src={myImageNight} alt="Dark Mode" />
+          <img
+            className="darkMode fadeIn"
+            src={darkMode ? myImageDay : myImageNight}
+            alt={darkMode ? "Light Mode" : "Dark Mode"}
+          />
         </button>
-      )}
+      </div>
+
       <div className="countTotal">
         &nbsp;Total Count: {count} (Suggested: 43)
         {count === 43 ? (

@@ -2,19 +2,22 @@ import React from "react";
 import "./Navbar.css";
 import happyface from "componentsImageshappyface.png";
 
-interface Props {
+interface NavbarProps {
   children?: React.ReactNode;
-  icon: React.ReactNode;
 }
 
-const Navbar = ({ children }: Props) => {
+interface NavItemProps {
+  icon: string; // Το NavItem δέχεται μόνο icon
+}
+
+const Navbar = ({ children }: NavbarProps) => {
   return <nav className="navbar">{children}</nav>;
 };
 
-const NavItem = ({ icon }: Props) => {
+const NavItem = ({ icon }: NavItemProps) => {
   return (
     <li className="nav-item">
-      <a href="#" className="icon-button ">
+      <a href="#" className="icon-button">
         {icon}
       </a>
     </li>
@@ -22,4 +25,4 @@ const NavItem = ({ icon }: Props) => {
 };
 
 export default Navbar;
-NavItem;
+export { NavItem };
