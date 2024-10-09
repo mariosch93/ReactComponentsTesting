@@ -6,7 +6,8 @@ import "./App.css";
 import Button from "./components/Button/Button";
 import myImageDay from "./components/Images/lightMode.png";
 import myImageNight from "./components/Images/half-moon.png";
-import Navbar, { NavItem } from "./components/Navbar/NavBar";
+import Navbar, { NavItem } from "./components/Navbar/Navbar";
+import Darkmode from "./components/Darkmode/Darkmode";
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -24,12 +25,6 @@ function App() {
 
   const handleCount = (number: number) => {
     setCount((prevCount) => prevCount + number);
-    console.log(
-      "Clicked times: ",
-      { count },
-      "and the total count is: ",
-      count + number
-    );
   };
 
   const handleReset = () => {
@@ -48,13 +43,11 @@ function App() {
       </Navbar>
 
       <div>
-        <button className="darkMode fadeIn" onClick={handleMode}>
-          <img
-            className="darkMode fadeIn"
-            src={darkMode ? myImageDay : myImageNight}
-            alt={darkMode ? "Light Mode" : "Dark Mode"}
-          />
-        </button>
+        <Darkmode
+          onClick={handleMode}
+          src={darkMode ? myImageDay : myImageNight}
+          alt={darkMode ? "Light Mode" : "Dark Mode"}
+        />
       </div>
 
       <div className="countTotal">
