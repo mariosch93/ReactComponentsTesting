@@ -8,6 +8,8 @@ import myImageDay from "./components/Images/lightMode.png";
 import myImageNight from "./components/Images/half-moon.png";
 import Navbar, { NavItem } from "./components/Navbar/Navbar";
 import Darkmode from "./components/Darkmode/Darkmode";
+import SetAttribute from "./components/SetAttribute/SetAttribute";
+import MoneyBag from "./components/Images/money-bag.gif";
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -35,7 +37,7 @@ function App() {
   return (
     <>
       <Navbar>
-        <NavItem icon="😁" />
+        <NavItem icon="🎅🏻" />
         <NavItem icon="🥰" />
         <NavItem icon="😒" />
         <NavItem icon="😌" />
@@ -50,16 +52,7 @@ function App() {
         />
       </div>
 
-      <div className="countTotal">
-        &nbsp;Total Count: {count} (Suggested: 43)
-        {count === 43 ? (
-          <em className="circleSuggestions">•Perfect😊</em>
-        ) : count > 43 ? (
-          <em className="circleSuggestions">•Reduce by: {count - 43}</em>
-        ) : (
-          <em className="circleSuggestions">•Increase by: {43 - count}</em>
-        )}
-      </div>
+      <SetAttribute current={count} perfect={43} />
       <div className="btn-group" role="group">
         <Button onClick={() => handleCount(-10)} color="warning">
           Count -10
@@ -67,11 +60,9 @@ function App() {
         <Button onClick={() => handleCount(-1)} color="warning">
           Count -1
         </Button>
-      </div>
-      <Button onClick={handleReset} disabled={count === 0} color="danger">
-        Reset
-      </Button>
-      <div className="btn-group" role="group">
+        <Button onClick={handleReset} disabled={count === 0} color="danger">
+          Reset
+        </Button>
         <Button onClick={() => handleCount(+1)} color="primary">
           Count +1
         </Button>
