@@ -1,7 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
 import "./App.css";
 import Button from "./components/Button/Button";
 import myImageDay from "./components/Images/lightMode.png";
@@ -9,11 +7,22 @@ import myImageNight from "./components/Images/half-moon.png";
 import Navbar, { NavItem } from "./components/Navbar/Navbar";
 import Darkmode from "./components/Darkmode/Darkmode";
 import SetAttribute from "./components/SetAttribute/SetAttribute";
-import MoneyBag from "./components/Images/money-bag.gif";
+import ProductList from "./components/ProductList/ProductList";
 
 function App() {
   const [count, setCount] = useState<number>(0);
   const [darkMode, setDarkmode] = useState(0);
+  const [category, setCategory] = useState("");
+
+  const ref = useRef<HTMLButtonElement>(null);
+
+  // after each  render  hook
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+      document.title = "My React playground";
+    }
+  });
 
   const handleMode = () => {
     if (darkMode) {
@@ -37,6 +46,7 @@ function App() {
   return (
     <>
       <Navbar>
+        <button ref={ref}>Menu</button>
         <NavItem icon="🎅🏻" />
         <NavItem icon="🥰" />
         <NavItem icon="😒" />
@@ -70,6 +80,16 @@ function App() {
           Count +10
         </Button>
       </div>
+      <select
+        title="categorySelector"
+        className="form-select"
+        onChange={(event) => setCategory(event.target.value)}
+      >
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="Household">Household</option>
+      </select>
+      <ProductList category={category} />
     </>
   );
 }
