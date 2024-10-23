@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navbar.css";
-import happyface from "componentsImageshappyface.png";
 
 interface NavbarProps {
   children?: React.ReactNode;
@@ -11,7 +10,9 @@ interface NavItemProps {
 }
 
 const Navbar = ({ children }: NavbarProps) => {
-  return <nav className="navbar">{children}</nav>;
+  return (
+    <nav className="navbar bg-dark border-bottom border-body">{children}</nav>
+  );
 };
 
 const NavItem = ({ icon }: NavItemProps) => {
