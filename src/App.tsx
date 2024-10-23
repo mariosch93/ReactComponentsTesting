@@ -9,7 +9,6 @@ import myImageNight from "./components/Images/half-moon.png";
 import Navbar, { NavItem } from "./components/Navbar/Navbar";
 import Darkmode from "./components/Darkmode/Darkmode";
 import SetAttribute from "./components/SetAttribute/SetAttribute";
-import MoneyBag from "./components/Images/money-bag.gif";
 
 function App() {
   const [count, setCount] = useState<number>(0);
